@@ -1,0 +1,27 @@
+.chatWidget {
+  background: #FFF;
+  border: 2px solid #9a9a9a;
+  padding: 5px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.chatWidget #chatMessageBoard {
+  height: 200px;
+  width: 300px;
+  border: 2px solid #000;
+  font-size: 12px;
+  background: #fff;
+}
+.chatWidget #chatMessage {
+  width: 190px;
+}
+.chatWidget #postMessage {
+  width: 100px;
+}
+.chatWidget .chatControls {
+  margin: 0 auto;
+  width: 300px;
+}
+.chatWidget .serverInfo {color: blue;}
+.chatWidget .userNames {color: red;}

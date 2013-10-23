@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="description" content="Chat Widget">
+  <meta name="author" content="Robert Winterbottom">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=7, IE=9, IE=10">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>Chat Widget</title>
+
+  <!-- Link in Socket.io -->
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Link in Socket.io -->
+
+  <!-- Link in css -->
+  <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
+  <link rel="stylesheet" href="css/ChatWidget.css">
+  <!-- Link in css -->
+  <style>
+    html, body, #map {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #myChatWidget {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 50;
+    }
+    #map_layer0 {
+      filter: invert(95%);
+      -webkit-filter: invert(95%);
+    }
+    #map_layer1 {
+      opacity: 0;
+      -webkit-filter: opacity(0%);
+    }
+    #drawingButtons {
+      position: absolute;
+      top: 20px;
+      left: 120px;
+      z-index: 50;
+      background: #fff;
+      border: 2px solid #9a9a9a;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+    }
+    #drawingButtons button {
+      display: inline-block;
+      margin: 5px;
+    }
+  </style>
+  <script>
+    var App = {};
+    App.socketURL = "http://localhost:8000";
+    App.pathname = location.pathname.replace(/\/[^/]+$/, "");
+    var dojoConfig = {
+      parseOnLoad: false,
+      isDebug: false,
+      async: true,
+      cacheBust: true,
+      packages: [
+        {name: "Utils", location: App.pathname + "/js"}
+      ]
+    };
+  </script>
+  <script src="http://js.arcgis.com/3.7/"></script>
+  <script>
+    require(["Utils/Main","dojo/domReady!"],function(Main){
+      Main.launchApp();
+    });
+  </script>
+</head>
+<body>
+  <div id="map">
+    <div id="myChatWidget"></div>
+    <div id="drawingButtons">
+      <button id="freehandPoly">Freehand Polygon</button>
+      <button id="polygon">Polygon</button>
+    </div>
+  </div>
+</body>
+</html>
